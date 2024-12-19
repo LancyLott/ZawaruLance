@@ -1,0 +1,153 @@
+ <div class="gg">
+        <input id="kalbo" placeholder="Enter the date">     
+        <button onclick="latigo()">Click Me</button> 
+        <p id="result"Result></p>
+        </div>
+        <script>
+                function latigo() {
+                const inputDate= document.getElementById('kalbo').value
+                const day= new Date(inputDate)
+                const today= day.getDay()
+        
+            let dayValue=""
+            switch(today){
+            case 0:
+                dayValue="Sunday"
+            break;
+        
+            case 1:
+                dayValue= "Monday"
+            break;
+        
+            case 2:
+                dayValue= "Tuesday"
+            break;
+        
+            case 3:
+                dayValue="Wednesday"
+            break;
+        
+            case 4:
+                dayValue="Thursday"
+            break;
+        
+            case 5:
+                dayValue="Friday"
+            break;
+        
+            case 6:
+                dayValue="Saturday"
+            break;
+            }
+        
+            document.getElementById("result").innerHTML = dayValue
+            }
+    </script>
+    
+    <html>
+    <div class="gg">
+    <p id="myId"></p>
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <button onclick="newFunction('+')">+</button>
+    <button onclick="newFunction('-')">-</button>
+    <button onclick="newFunction('*')">*</button>
+    <button onclick="newFunction('/')">/</button>
+    <script src="armamento.js"></script>
+    </div>
+    </html>
+
+<div class="gg">
+<input id="QWE" placeholder="My First input">
+<button onclick="ASO()">Click Me</button>
+</div>
+<script>
+    
+    function ASO() {
+        var ggInput = document.getElementById('QWE').value 
+        console.log (2023 - parseInt(ggInput));
+        if(parseInt(ggInput) >= 18){
+            console.log("PWEDE KANA MAKULONG")
+        }else{
+            console.log("BATA KAPA")
+        }
+    }
+</script>
+<div class="gg">
+<div class="container mt-3 d-flex flex-column">
+    <div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Pokemon's name" id="pokemon-name">
+        <button class="btn btn-outline-secondary" type="button" id="search-pokemon">Search</button>
+    </div>
+    
+   
+    <div class="w-50">
+      <div class="card">
+        <img class="card-img-top img-responsive" width="250" id="pokemon-image">
+        <div class="card-body">
+          <h5 class="card-title">Name: <span id="pokemon-name-title"></span></h5>
+          <h6 class="card-subtitle mb-2 text-muted">Type: <span  id="pokemon-type"></span></h6>
+          <h6 class="card-subtitle mb-2 text-muted">Height: <span  id="pokemon-height"></span></h6>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary"></a>
+        </div>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+          integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    
+    var search_pokemon = $("#search-pokemon");
+  
+   search_pokemon.click(function () {
+     var pokemon_name = $("#pokemon-name").val();
+     $.ajax({
+       url: "https://pokeapi.co/api/v2/pokemon/" + pokemon_name,
+       type: "GET",
+       success: function (data) {
+         console.log(data);
+         const parse_pokemon_data = JSON.parse(JSON.stringify(data));
+         const pokemon_image = parse_pokemon_data.sprites.other.home.front_default;
+         const pokemon_name = parse_pokemon_data.name;
+         const pokemon_type = parse_pokemon_data.types[0].type.name;
+         const pokemon_height = parse_pokemon_data.height;
+  
+         const pokemon_type_list = ["fire", "water", "electric", "rock"];
+         const pokemon_type_color = ["#e74c3c", "#3498db", "#f1c40f", "#e67e22"];
+  
+         for(let i = 0; i < pokemon_type_list.length; i++){
+           if(pokemon_type === pokemon_type_list[i]){
+             $("#pokemon-type").css("color", pokemon_type_color[i]);
+           }
+         }
+  
+         // Pokemon Render Data
+         $("#pokemon-name-title").text(pokemon_name.toUpperCase());
+         $("#pokemon-type").text(pokemon_type.toUpperCase());
+         $("#pokemon-image").attr("src", pokemon_image);
+         $("#pokemon-height").text(pokemon_height);
+  
+       }
+     });
+   });
+   document.addEventListener("DOMContentLoaded", function() {
+    const elements = document.querySelectorAll('.gg');
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+});
+
+</script>
+
+
+</script>

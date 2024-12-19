@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My Resume</title>
+    <link rel="stylesheet" href="lance.css">
+    <style>
+        /* Add smooth scrolling to the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: #3498db;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 60px; /* Account for fixed navbar */
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+            font-size: 1em;
+        }
+
+        table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        table td {
+            background-color: #ffffff;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table td, table th {
+            border-left: 1px solid #ddd;
+        }
+
+        table th:first-child, table td:first-child {
+            border-left: none;
+        }
+
+        /* Alternating Row Colors */
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Animation for Fade-In Effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Scroll Animations for the Resume Sections */
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply animation to each section */
+        .card, h2, p, ul, table {
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .card, h2, p, ul, table {
+            margin-bottom: 30px;
+        }
+
+        /* Delay for different sections */
+        .card {
+            animation-delay: 0.3s;
+        }
+
+        h2 {
+            animation-delay: 0.6s;
+        }
+
+        p, ul, table {
+            animation-delay: 0.9s;
+        }
+
+        /* Section Scroll Trigger */
+        .gg {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        .gg:nth-child(even) {
+            animation-delay: 0.5s;
+        }
+
+        .gg:nth-child(odd) {
+            animation-delay: 1s;
+        }
+
+        /* Scrolling Button */
+        button {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Input field styling */
+        input[type="text"] {
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Technical Skills</a></li>
+            <li><a href="#seminars">Seminars</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="cover-photo"></div>
+                <img class="myphoto" src="lance.jpg">
+                <h1>Lance Armamento</h1>
+                <h4 style="margin-top: -14px;">Poblacion Lobo Batangas 4229</h4>
+                <span class="tags">09611403161</span>
+                <span class="tags">armamento.lance.c210372@gmail.com</span>
+                <br><br><br>
+            </div>
+        </div>
+
+        <div class="card" id="summary">
+            <h2>Summary</h2>
+            <p class="ren">Recent graduate seeking a challenging a career with a progressive organization that can benefit from my technical skills and abilities in the field of Information Technology (IT).</p>
+        </div>
+        <div class="gg">
+            <input id="kalbo" placeholder="Enter the date">     
+            <button onclick="latigo()">Click Me</button> 
+            <p id="result"Result></p>
+            </div>
+            <script>
+                    function latigo() {
+                    const inputDate= document.getElementById('kalbo').value
+                    const day= new Date(inputDate)
+                    const today= day.getDay()
+            
+                let dayValue=""
+                switch(today){
+                case 0:
+                    dayValue="Sunday"
+                break;
+            
+                case 1:
+                    dayValue= "Monday"
+                break;
+            
+                case 2:
+                    dayValue= "Tuesday"
+                break;
+            
+                case 3:
+                    dayValue="Wednesday"
+                break;
+            
+                case 4:
+                    dayValue="Thursday"
+                break;
+            
+                case 5:
+                    dayValue="Friday"
+                break;
+            
+                case 6:
+                    dayValue="Saturday"
+                break;
+                }
+            
+                document.getElementById("result").innerHTML = dayValue
+                }
+        </script>
+        
+        <html>
+        <div class="gg">
+        <p id="myId"></p>
+        <input type="text" id="num1">
+        <input type="text" id="num2">
+        <button onclick="newFunction('+')">+</button>
+        <button onclick="newFunction('-')">-</button>
+        <button onclick="newFunction('*')">*</button>
+        <button onclick="newFunction('/')">/</button>
+        <script src="armamento.js"></script>
+        </div>
+        </html>
+    
+    <div class="gg">
+    <input id="QWE" placeholder="My First input">
+    <button onclick="ASO()">Click Me</button>
+    </div>
+    <script>
+        
+        function ASO() {
+            var ggInput = document.getElementById('QWE').value 
+            console.log (2023 - parseInt(ggInput));
+            if(parseInt(ggInput) >= 18){
+                console.log("PWEDE KANA MAKULONG")
+            }else{
+                console.log("BATA KAPA")
+            }
+        }
+    </script>
+    <div class="gg">
+    <div class="container mt-3 d-flex flex-column">
+        <div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Pokemon's name" id="pokemon-name">
+            <button class="btn btn-outline-secondary" type="button" id="search-pokemon">Search</button>
+        </div>
+        
+       
+        <div class="w-50">
+          <div class="card">
+            <img class="card-img-top img-responsive" width="250" id="pokemon-image">
+            <div class="card-body">
+              <h5 class="card-title">Name: <span id="pokemon-name-title"></span></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Type: <span  id="pokemon-type"></span></h6>
+              <h6 class="card-subtitle mb-2 text-muted">Height: <span  id="pokemon-height"></span></h6>
+              <p class="card-text"></p>
+              <a href="#" class="btn btn-primary"></a>
+            </div>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+              integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+              crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        
+        var search_pokemon = $("#search-pokemon");
+      
+       search_pokemon.click(function () {
+         var pokemon_name = $("#pokemon-name").val();
+         $.ajax({
+           url: "https://pokeapi.co/api/v2/pokemon/" + pokemon_name,
+           type: "GET",
+           success: function (data) {
+             console.log(data);
+             const parse_pokemon_data = JSON.parse(JSON.stringify(data));
+             const pokemon_image = parse_pokemon_data.sprites.other.home.front_default;
+             const pokemon_name = parse_pokemon_data.name;
+             const pokemon_type = parse_pokemon_data.types[0].type.name;
+             const pokemon_height = parse_pokemon_data.height;
+      
+             const pokemon_type_list = ["fire", "water", "electric", "rock"];
+             const pokemon_type_color = ["#e74c3c", "#3498db", "#f1c40f", "#e67e22"];
+      
+             for(let i = 0; i < pokemon_type_list.length; i++){
+               if(pokemon_type === pokemon_type_list[i]){
+                 $("#pokemon-type").css("color", pokemon_type_color[i]);
+               }
+             }
+      
+             // Pokemon Render Data
+             $("#pokemon-name-title").text(pokemon_name.toUpperCase());
+             $("#pokemon-type").text(pokemon_type.toUpperCase());
+             $("#pokemon-image").attr("src", pokemon_image);
+             $("#pokemon-height").text(pokemon_height);
+      
+           }
+         });
+       });
+       document.addEventListener("DOMContentLoaded", function() {
+        const elements = document.querySelectorAll('.gg');
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+    
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+    
+    </script>
+    
+    
+    </script>
+
+        <div class="card" id="education">
+            <h2>Education</h2>
+            <table border="2px">
+                <tr>
+                    <th>Schools</th>
+                    <th>Section</th>
+                    <th>School Year</th>
+                    <th>Course</th>
+                </tr>
+                <tr>
+                    <td>Lobo Elementary School</td>
+                    <td>Gratitude</td>
+                    <td>2008-2014</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Lobo Institute Inc. School</td>
+                    <td>Knowledge</td>
+                    <td>2015-2019</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Lobo Senior High School</td>
+                    <td>Wisdom</td>
+                    <td>2019-2021</td>
+                    <td>HUMSS</td>
+                </tr>
+                <tr>
+                    <td>Westmead International School</td>
+                    <td>BSIT 311</td>
+                    <td>2021-2022</td>
+                    <td>BSIT</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card" id="skills">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li>Hardware & Software Troubleshooting</li>
+                <li>Microsoft Office (MS Word, Excel, PowerPoint)</li>
+            </ul>
+        </div>
+
+        <div class="card" id="seminars">
+            <h2>Seminars</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Seminars</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ISITE</td>
+                    </tr>
+                    <tr>
+                        <td>BITZ</td>
+                    </tr>
+                    <tr>
+                        <td>Y4IT</td>
+                    </tr>
+                    <tr>
+                        <td>BITCON</td>
+                    </tr>
+                    <tr>
+                        <td>BITCON 2024</td>
+                    </tr>
+                    <tr>
+                        <td>JARVIS</td>
+                    </tr>
+                    <tr>
+                        <td>UNLOCK TO SUCCESS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card" id="contact">
+            <h2>Contact</h2>
+            <p>If you'd like to reach out, feel free to contact me at:</p>
+            <ul>
+                <li>Phone: 09611403161</li>
+                <li>Email: armamento.lance.c210372@gmail.com</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
